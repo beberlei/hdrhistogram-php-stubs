@@ -1,0 +1,13 @@
+{
+    "name": "beberlei/hdrhistogram-php-stubs",
+    "description": "IDE stubs for beberlei/hdrhistogram-php",
+    "type": "library",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Tobias Olry",
+            "email": "tobias@tideways-gmbh.com"
+        }
+    ],
+    "require": {}
+}
