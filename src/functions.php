@@ -11,6 +11,7 @@ function hdr_init(int $lowestTrackableValue, int $highestTrackableValue, int $si
 
 /**
  * Calculates the required memory size (C) for the given histogram, excluding the PHP overhead for zval and resource representation.
+ *
  * @param resource $hdr
  */
 function hdr_get_memory_size($hdr): int
@@ -19,6 +20,7 @@ function hdr_get_memory_size($hdr): int
 
 /**
  * Estimate the mean of the given histogram.
+ *
  * @param resource $hdr
  */
 function hdr_mean($hdr): int
@@ -27,6 +29,7 @@ function hdr_mean($hdr): int
 
 /**
  * Estimate the standard deviation of the given histogram.
+ *
  * @param resource $hdr
  */
 function hdr_stddev($hdr): float
@@ -35,6 +38,7 @@ function hdr_stddev($hdr): float
 
 /**
  * Retrieve the minimal value of the given histogram.
+ *
  * @param resource $hdr
  */
 function hdr_min($hdr): int
@@ -43,6 +47,7 @@ function hdr_min($hdr): int
 
 /**
  * Retrieve the maximum value of the given histogram.
+ *
  * @param resource $hdr
  */
 function hdr_max($hdr): int
@@ -52,6 +57,7 @@ function hdr_max($hdr): int
 /**
  * Record a value (integer) for the given histogram.
  * Returns false if the value is larger than the highest_trackable_value and can't be recorded, true otherwise.
+ *
  * @param resource $hdr
  */
 function hdr_record_value($hdr, int $value): bool
@@ -61,6 +67,7 @@ function hdr_record_value($hdr, int $value): bool
 /**
  * Record a value (integer) for $count number of times in the given histogram.
  * Returns false if the value is larger than the highest_trackable_value and can't be recorded, true otherwise.
+ *
  * @param resource $hdr
  */
 function hdr_record_values($hdr, int $value, int $count): bool
@@ -72,6 +79,7 @@ function hdr_record_values($hdr, int $value, int $count): bool
  * Records a value in the histogram, will round this value of to a precision at or better than the significant_figure specified at contruction time.
  * This is specifically used for recording latency. If the value is larger than the expected_interval then the latency recording system has experienced co-ordinated omission.
  * This method fills in the values that would have occured had the client providing the load not been blocked.
+ *
  * @param resource $hdr
  */
 function hdr_record_corrected_value($hdr, int $value, int $expected_interval): bool
@@ -80,6 +88,7 @@ function hdr_record_corrected_value($hdr, int $value, int $expected_interval): b
 
 /**
  * Drop all recorded values of the given histogram.
+ *
  * @param resource $hdr
  */
 function hdr_reset($hdr)
@@ -88,6 +97,7 @@ function hdr_reset($hdr)
 
 /**
  * Get the count of recorded values at a specific value (to within the histogram resolution at the value level).
+ *
  * @param resource $hdr
  */
 function hdr_count_at_value($hdr, int $value): int
@@ -96,6 +106,7 @@ function hdr_count_at_value($hdr, int $value): int
 
 /**
  * Get the value at a specific percentile.
+ *
  * @param resource $hdr
  */
 function hdr_value_at_percentile($hdr, float $percentile): int
@@ -110,14 +121,17 @@ function hdr_value_at_percentile($hdr, float $percentile): int
  * @param resource $from
  * @return resource
  */
-function hdr_add($to, resource $from)
+function hdr_add($to, $from)
 {
 }
 
 /**
  * Mutable version of hdr_add, modifiying the $to histogram.
+ *
+ * @param resource $to
+ * @param resource $from
  */
-function hdr_merge_into($to, resource $from): int
+function hdr_merge_into($to, $from): int
 {
 }
 
