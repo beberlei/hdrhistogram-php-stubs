@@ -194,3 +194,13 @@ function hdr_export($hdr)
 function hdr_import(array $data)
 {
 }
+
+/**
+ * returns number of stored values
+ *
+ * @param resource $hdr
+ * @return int
+ */
+function hdr_total_count($hdr)
+{
+}
